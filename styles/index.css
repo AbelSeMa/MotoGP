@@ -1,0 +1,11 @@
+body {
+    background-image: url(../img/fondo.jpg);
+    font-family: monospace;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+    background-color: aliceblue;
+}

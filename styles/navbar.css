@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    background-color: #aaa6a6;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0 3px 4px rgba(0,0,0,.15);
+    padding-right: 10px;
+
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+header a:hover {
+    color: rgb(194, 5, 5);
+    text-shadow: rgb(243, 116, 116) 1px 0 10px;
+    font-size: 20px;
+    transition: 0.5s ease;
+}
+
+.logo {
+    height: 90px;
+}
