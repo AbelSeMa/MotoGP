@@ -82,7 +82,20 @@ INSERT INTO circuitos (nombre, pais, longitud(metros))
                 ('Circuito de Jerez - Ángel Nieto', 'España', 4423),
                 ('Le Mans', 'Francia', 4190),
                 ('Mugello', 'Italia', 5245),
-                ('Sachsenring', 'Alemania', 3658);
+                ('Sachsenring', 'Alemania', 3658),
+                ('Circuit Assen', 'Holanda', 4476),
+                ('Silverstone Circuit', 'Gran Bretaña', 5903),
+                ('Red Bull Ring', 'Austria', 4310),
+                ('Circuit de Barcelona', 'España', 4785),
+                ('Misano World Circuit Marco Simoncelli', 'Italia', 4133),
+                ('Buddh International Circuit', 'India', 5013),
+                ('Mobility Resort Motegi', 'Japón', 4802),
+                ('Mandalika International Street Circuit', 'Indonesia', 4276),
+                ('Phillip Island', 'Australia', 4467),
+                ('Chang International Circuit', 'Tailandia', 4566),
+                ('Sepang International Circuit', 'Malasia', 5488),
+                ('Lusail International Circuit', 'Qatar', 5408),
+                ('Circuit Ricardo Tormo', 'España', 4000),
 
 INSERT INTO carreras (fecha, circuito_id)
         VALUES ('26-03-2023', 1),
@@ -91,20 +104,33 @@ INSERT INTO carreras (fecha, circuito_id)
                 ('30-03-2023', 4),
                 ('14-05-2023', 5),
                 ('11-06-2023', 6),
-                ('18-06-2023', 7);
+                ('18-06-2023', 7),
+                ('25-06-2023', 8),
+                ('06-08-2023', 9),
+                ('20-08-2023', 10),
+                ('03-09-2023', 11),
+                ('10-09-2023', 12),
+                ('24-09-2023', 13),
+                ('01-10-2023', 14),
+                ('15-10-2023', 15),
+                ('22-10-2023', 16),
+                ('29-10-2023', 17),
+                ('12-11-2023', 18),
+                ('19-11-2023', 19),
+                ('26-11-2023', 20);
 
-INSERT INTO equipos (nombre, año_fundacion, pais, jefe_id, moto_id)
-            VALUES ('Aprilia Racing Team', 2015, 'Italia', 1, 4),
-                    ('Ducati Team', 1999, 'Italia', 1, 2),
-                    ('Gresini Racing', 1997, 'Italia', 1, 3),
-                    ('Pramac Racing', 2002, 'Italia', 1, 2),
-                    ('Red Bull KTM Factory Racing', 2015, 'Austria', 1, 5),
-                    ('Repsol Honda Team', 2015, 'Japón', 1, 1),
-                    ('RNF MotoGP Racing', 2021, 'Malasia', 1, 4),
-                    ('LCR Honda', 1996, 'Monaco', 1, 1),
-                    ('VR46 Racing Team', 2014, 'Italia', 1, 3),
-                    ('Tech3', 1989, 'Francia', 1, 7),
-                    ('Yamaha Factory Racing', 1999, 'Italia', 1, 6);
+INSERT INTO equipos (nombre, año_fundacion, pais, moto_id)
+            VALUES ('Aprilia Racing Team', 2015, 'Italia', 4),
+                    ('Ducati Team', 1999, 'Italia', 2),
+                    ('Gresini Racing', 1997, 'Italia', 3),
+                    ('Pramac Racing', 2002, 'Italia', 2),
+                    ('Red Bull KTM Factory Racing', 2015, 'Austria', 5),
+                    ('Repsol Honda Team', 2015, 'Japón', 1),
+                    ('RNF MotoGP Racing', 2021, 'Malasia', 4),
+                    ('LCR Honda', 1996, 'Monaco', 1),
+                    ('VR46 Racing Team', 2014, 'Italia', 3),
+                    ('Tech3', 1989, 'Francia', 7),
+                    ('Yamaha Factory Racing', 1999, 'Italia', 6);
 
 
 INSERT INTO motos (nombre, cilindrara, peso)
@@ -139,4 +165,4 @@ INSERT INTO pilotos (nombre, apellido, edad, nacionalidad, dorsal, moto_id)
                     ('Augusto', 'Fernandez', 25, 'ESP', 37, 7),
                     ('Pol', 'Espargaró', 31, 'ESP', 44, 7),
                     ('Fabio', 'Quartararo', 24, 'ITA', 20, 6),
-                    ('Maverick', 'Viñales', 28, 'ITA', 21, 6),
+                    ('Franco', 'Morbidelli', 28, 'ITA', 21, 6),
