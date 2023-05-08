@@ -1,13 +1,3 @@
-DROP TABLE IF EXISTS jefes CASCADE;
-
-CREATE TABLE jefes (
-    id              bigserial   PRIMARY KEY,
-    nombre          varchar(40) NOT NULL,
-    nacionalidad    varchar(10) NOT NULL,
-    edad            int         NOT NULL    
-);
-
-
 DROP TABLE IF EXISTS equipos CASCADE;
 
 CREATE TABLE equipos (
@@ -15,7 +5,6 @@ CREATE TABLE equipos (
     nombre          varchar(50)     NOT NULL,
     año_fundacion   int             NOT NULL,
     pais            varchar(20)     NOT NULL,
-    jefe_id         bigint          NOT NULL REFERENCES jefes(id),
     moto_id         bigint          NOT NULL REFERENCES motos(id)
 );
 
@@ -56,7 +45,7 @@ DROP TABLE IF EXISTS piloto_carrera CASCADE;
 
 CREATE TABLE piloto_carrera (
     piloto_id       bigint      NOT NULL REFERENCES pilotos(id),
-    carrera_id      bigint      NO NULL REFERENCES carreras(id),
+    carrera_id      bigint      NOT NULL REFERENCES carreras(id),
     posicion        int         NOT NULL,
     puntos          int         NOT NULL,
     PRIMARY KEY (piloto_id, carrera_id)
@@ -64,18 +53,18 @@ CREATE TABLE piloto_carrera (
 );
 
 
-DROP TABLE IF EXISTS circuito CASCADE;
+DROP TABLE IF EXISTS circuitos CASCADE;
 
-CREATE TABLE circuito (
+CREATE TABLE circuitos (
     id                  bigserial   PRIMARY KEY,
     nombre              varchar(255) NOT NULL,
     pais                varchar(50) NOT NULL,
-    longitud(metros)    bigint      NOT NULL
+    longitud    bigint      NOT NULL
 );
 
 -- Carga inicial de los datos:
 
-INSERT INTO circuitos (nombre, pais, longitud(metros))
+INSERT INTO circuitos (nombre, pais, longitud)
         VALUES ('Portimao', 'Portugal', 4653),
                 ('Circuito Termas de Río', 'Argentina', 4806),
                 ('Circuit of The Americas', 'Estados Unidos', 5513),
@@ -95,7 +84,7 @@ INSERT INTO circuitos (nombre, pais, longitud(metros))
                 ('Chang International Circuit', 'Tailandia', 4566),
                 ('Sepang International Circuit', 'Malasia', 5488),
                 ('Lusail International Circuit', 'Qatar', 5408),
-                ('Circuit Ricardo Tormo', 'España', 4000),
+                ('Circuit Ricardo Tormo', 'España', 4000);
 
 INSERT INTO carreras (fecha, circuito_id)
         VALUES ('26-03-2023', 1),
@@ -133,7 +122,7 @@ INSERT INTO equipos (nombre, año_fundacion, pais, moto_id)
                     ('Yamaha Factory Racing', 1999, 'Italia', 6);
 
 
-INSERT INTO motos (nombre, cilindrara, peso)
+INSERT INTO motos (nombre, cilindrada, peso)
             VALUES ('Honda RC213V', 1000, 160),
                     ('Ducati Desmosedici GP23', 1000, 160),
                     ('Ducati Desmosedici GP22', 1000, 160),
@@ -165,4 +154,4 @@ INSERT INTO pilotos (nombre, apellido, edad, nacionalidad, dorsal, moto_id)
                     ('Augusto', 'Fernandez', 25, 'ESP', 37, 7),
                     ('Pol', 'Espargaró', 31, 'ESP', 44, 7),
                     ('Fabio', 'Quartararo', 24, 'ITA', 20, 6),
-                    ('Franco', 'Morbidelli', 28, 'ITA', 21, 6),
+                    ('Franco', 'Morbidelli', 28, 'ITA', 21, 6);
