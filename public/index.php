@@ -54,6 +54,7 @@
                     </figure>
                     <div class="article-body">
                         <h3 align="center"><?= $fila['equipo'] ?></h3>
+                        <h4 align="center"><?= $piloto[0] ?> | <?= $piloto[1]?></h4>
                     </div>
                 </div>
             </article>
