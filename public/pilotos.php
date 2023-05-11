@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoGP</title>
     <link rel="shortcut icon" href="/img/Moto_Gp_logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/piloto.css">
     <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 
@@ -19,11 +19,7 @@
     require '../vendor/autoload.php';
 
     $pdo = conectar();
-    $sent = $pdo->query("SELECT e.equipo, 
-                            STRING_AGG(DISTINCT p.nombre || ' ' || p.apellido, ', ') AS pilotos
-                            FROM equipos AS e 
-                            JOIN pilotos AS p ON e.moto_id = p.moto_id 
-                            GROUP BY e.equipo;");
+    $sent = $pdo->query("SELECT * FROM pilotos");
     ?>
     <header>
         <img src="img/Moto_Gp_logo.svg" alt="MotoGP" class="logo">
@@ -44,15 +40,14 @@
 
     <section class="articles">
     <?php foreach ($sent as $fila) : ?>
-        <?php $piloto = explode(',',$fila['pilotos']); ?>
             <article>
                 <div class="article-wrapper">
                     <figure>
                         <img src="img/<?= hh($fila['equipo']) ?>.png" alt="<?= $fila['equipo'] ?>" />
                     </figure>
                     <div class="article-body">
-                        <h3 align="center"><?= $fila['equipo'] ?></h3>
-                        <h4 align="center"><?= $piloto[0] ?> | <?= $piloto[1]?></h4>
+                        <h4><?= hh($fila['nombre']) ?></h4>
+                        <h3><?= hh($fila['apellido']) ?></h3>
                     </div>
                 </div>
             </article>
