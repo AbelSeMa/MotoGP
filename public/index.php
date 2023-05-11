@@ -48,7 +48,7 @@
             <article>
                 <div class="article-wrapper">
                     <figure>
-                        <img src="img/<?= hh($fila['equipo']) ?>.png" alt="<?= $fila['equipo'] ?>" />
+                        <img src="img/p<?= $fila['id'] ?>.png" alt="<?= $fila['equipo'] ?>" />
                     </figure>
                     <div class="article-body">
                         <h3 align="center"><?= $fila['equipo'] ?></h3>
