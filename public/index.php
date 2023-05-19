@@ -18,12 +18,13 @@
     <?php
     require '../vendor/autoload.php';
 
+    $fecha = getdate();
+    $actual = implode('-', [$fecha['year'], $fecha['mon'], $fecha['mday']]);
+
     $pdo = conectar();
-    $sent = $pdo->query("SELECT e.equipo, 
-                            STRING_AGG(DISTINCT p.nombre || ' ' || p.apellido, ', ') AS pilotos
-                            FROM equipos AS e 
-                            JOIN pilotos AS p ON e.moto_id = p.moto_id 
-                            GROUP BY e.equipo;");
+    $sent = $pdo->query("SELECT ca.id, ca.fecha, ci.circuito from carreras as ca 
+                        JOIN circuitos as ci 
+                        ON ca.circuito_id = ci.id;");
     ?>
     <header>
         <img src="img/Moto_Gp_logo.svg" alt="MotoGP" class="logo">
@@ -32,7 +33,7 @@
             <a href="index.php">Inicio</a>
             <a href="">Calendario</a>
             <a href="pilotos.php">Pilotos</a>
-            <a href="">Equipos</a>
+            <a href="equipos.php">Equipos</a>
             <a href="">Resultados</a>
             <a href="">Multimedia</a>
             <a href="">Tienda</a>
@@ -42,22 +43,48 @@
 
     <h1>Mundial de MotoGP 2023</h1>
 
-    <section class="articles">
-    <?php foreach ($sent as $fila) : ?>
-        <?php $piloto = explode(',',$fila['pilotos']); ?>
-            <article>
-                <div class="article-wrapper">
-                    <figure>
-                        <img src="img/p<?= $fila['id'] ?>.png" alt="<?= $fila['equipo'] ?>" />
-                    </figure>
-                    <div class="article-body">
-                        <h3 align="center"><?= $fila['equipo'] ?></h3>
-                        <h4 align="center"><?= $piloto[0] ?> | <?= $piloto[1]?></h4>
-                    </div>
-                </div>
-            </article>
-            <?php endforeach ?>
-        </section>
+    <div class="container">
+
+        <div class="calendario">
+            <table>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Circuito</th>
+                </tr>
+                <?php foreach ($sent as $fila ) : ?>
+                    <?php if (strtotime($fila['fecha']) < strtotime($actual)) : ?>
+                        <tr>
+
+                            <th style="background-color: grey;"><?= $fila['fecha'] ?></th>
+                            <th style="background-color: grey;"><?= $fila['circuito'] ?></th>
+                        </tr>
+                    <?php else: ?>
+                    <tr>
+                        <th><?= $fila['fecha'] ?></th>
+                        <th><?= $fila['circuito'] ?></th>
+                    </tr>
+                <?php endif ?>
+
+
+                <?php endforeach ?>
+            </table>
+
+        </div>
+
+        <div class="clasificacion">
+            <div class="clasipilotos">
+
+            </div>
+            <div class="clasiequipos">
+
+            </div>
+        </div>
+
+        <div class="netxrace">
+
+        </div>
+        
+    </div>
 </body>
 
 </html>
