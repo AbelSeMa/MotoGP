@@ -1,0 +1,41 @@
+body {
+    font-family: "MotoGP Font", "Source Sans Pro", Helvetica, Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(41, 45, 48)
+}
+
+h1 {
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.calendario table {
+    border: 2px solid;
+    text-align: left;
+    color: aliceblue;
+}
+
+.calendario th {
+    text-align: center;
+    background-color: rgb(255, 47, 47);
+}
+
+.pais {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 5px 10px ;
+}
+
+.calendario img {
+    width: 30px;
+}
+
+.calendario table {
+    align-content: center;
+}
+
+.finalizado {
+    opacity: 20%;
+}

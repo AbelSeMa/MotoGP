@@ -22,7 +22,7 @@
     $actual = implode('-', [$fecha['year'], $fecha['mon'], $fecha['mday']]);
 
     $pdo = conectar();
-    $sent = $pdo->query("SELECT ca.id, ca.fecha, ci.circuito from carreras as ca 
+    $sent = $pdo->query("SELECT ca.id, ca.fecha, ci.circuito, ci.pais from carreras as ca 
                         JOIN circuitos as ci 
                         ON ca.circuito_id = ci.id;");
     ?>
@@ -46,22 +46,22 @@
     <div class="container">
 
         <div class="calendario">
-            <table>
+            <table class="carreras">
                 <tr>
-                    <th>Fecha</th>
-                    <th>Circuito</th>
+                    <th colspan="2">Calendario</th>
+
                 </tr>
                 <?php foreach ($sent as $fila ) : ?>
                     <?php if (strtotime($fila['fecha']) < strtotime($actual)) : ?>
                         <tr>
 
-                            <th style="background-color: grey;"><?= $fila['fecha'] ?></th>
-                            <th style="background-color: grey;"><?= $fila['circuito'] ?></th>
+                            <td class="finalizado"><?= $fila['fecha'] ?></td>
+                            <td class="finalizado pais"> <img src="img/banderas/<?= $fila['pais'] ?>.png" alt="<?= $fila['pais'] ?>"> <?= $fila['circuito'] ?></td>
                         </tr>
                     <?php else: ?>
                     <tr>
-                        <th><?= $fila['fecha'] ?></th>
-                        <th><?= $fila['circuito'] ?></th>
+                        <td class="pendiente"><?= $fila['fecha'] ?></td>
+                        <td class="pendiente pais"><img src="img/banderas/<?= $fila['pais'] ?>.png" alt="<?= $fila['pais'] ?>"><?= $fila['circuito'] ?></td>
                     </tr>
                 <?php endif ?>
 

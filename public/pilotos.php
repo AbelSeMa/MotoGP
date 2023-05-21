@@ -28,7 +28,7 @@
             <a href="index.php">Inicio</a>
             <a href="">Calendario</a>
             <a href="pilotos.php">Pilotos</a>
-            <a href="">Equipos</a>
+            <a href="equipos.php">Equipos</a>
             <a href="">Resultados</a>
             <a href="">Multimedia</a>
             <a href="">Tienda</a>
@@ -43,7 +43,7 @@
             <article>
                 <div class="article-wrapper">
                     <figure>
-                        <img src="img/<?= hh($fila['equipo']) ?>.png" alt="<?= $fila['equipo'] ?>" />
+                        <img src="img/<?= hh($fila['nombre']) ?>.png" alt="<?= $fila['nombre'] ?>" />
                     </figure>
                     <div class="article-body">
                         <h4><?= hh($fila['nombre']) ?></h4>
