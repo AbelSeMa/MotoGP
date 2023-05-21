@@ -11,6 +11,13 @@ h1 {
     color: white;
 }
 
+.container {
+    display: flex;
+    gap: 20px;
+    cursor: default;
+    margin-bottom: 10px;
+}
+
 .calendario table {
     margin-left: 10px;
     border: 2px solid;
@@ -40,4 +47,20 @@ h1 {
 
 .finalizado {
     opacity: 20%;
+}
+
+.clasipilotos table {
+    margin-left: 10px;
+    border: 2px solid;
+    text-align: left;
+    color: aliceblue;
+}
+
+.clasipilotos th {
+    text-align: center;
+    background-color: rgb(255, 47, 47);
+}
+
+.clasipilotos img {
+    width: 30px;
 }

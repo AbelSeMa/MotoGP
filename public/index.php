@@ -25,6 +25,15 @@
     $sent = $pdo->query("SELECT ca.id, ca.fecha, ci.circuito, ci.pais from carreras as ca 
                         JOIN circuitos as ci 
                         ON ca.circuito_id = ci.id;");
+
+    $sent2 = $pdo->query("SELECT pi.nombre, pi.apellido, pi.pais, sum(puntos) AS puntuacion 
+                        FROM piloto_carrera pc 
+                        JOIN pilotos as pi 
+                        ON pi.id = pc.piloto_id 
+                        GROUP BY pi.nombre, pi.apellido, pi.pais
+                        ORDER BY puntuacion desc;")
+
+                        
     ?>
     <header>
         <img src="img/Moto_Gp_logo.svg" alt="MotoGP" class="logo">
@@ -51,19 +60,19 @@
                     <th colspan="2">Calendario</th>
 
                 </tr>
-                <?php foreach ($sent as $fila ) : ?>
+                <?php foreach ($sent as $fila) : ?>
                     <?php if (strtotime($fila['fecha']) < strtotime($actual)) : ?>
                         <tr>
 
-                            <td class="finalizado"><?= $fila['fecha'] ?></td>
+                            <td class="finalizado"><?= implode("-", array_reverse(explode("-", $fila['fecha']))) ?></td>
                             <td class="finalizado pais"> <img src="img/banderas/<?= $fila['pais'] ?>.png" alt="<?= $fila['pais'] ?>"> <?= $fila['circuito'] ?></td>
                         </tr>
-                    <?php else: ?>
-                    <tr>
-                        <td class="pendiente"><?= $fila['fecha'] ?></td>
-                        <td class="pendiente pais"><img src="img/banderas/<?= $fila['pais'] ?>.png" alt="<?= $fila['pais'] ?>"><?= $fila['circuito'] ?></td>
-                    </tr>
-                <?php endif ?>
+                    <?php else : ?>
+                        <tr>
+                            <td class="pendiente"><?= implode("-", array_reverse(explode("-", $fila['fecha']))) ?></td>
+                            <td class="pendiente pais"><img src="img/banderas/<?= $fila['pais'] ?>.png" alt="<?= $fila['pais'] ?>"><?= $fila['circuito'] ?></td>
+                        </tr>
+                    <?php endif ?>
 
 
                 <?php endforeach ?>
@@ -74,11 +83,25 @@
         <div class="clasificacion">
             <div class="clasipilotos">
                 <table>
-                    
+                    <tr>
+                        <th colspan="2"> Clasificación Mundial </th>
+                    </tr>
+                    <?php foreach ($sent2 as $fila) : ?>
+                        
+                        <tr>
+                            <td class="pais"><img src="img/banderas/<?= $fila['pais'] ?>.png" alt="<?= $fila['pais'] ?>"><?= $fila['nombre'] ?> <?= $fila['apellido'] ?></td>
+                            <td><?= $fila['puntuacion'] ?> puntos</td>
+
+                        </tr>
+                    <?php endforeach ?>
+
                 </table>
 
             </div>
             <div class="clasiequipos">
+                <table>
+
+                </table>
 
             </div>
         </div>
@@ -86,7 +109,7 @@
         <div class="netxrace">
 
         </div>
-        
+
     </div>
 </body>
 

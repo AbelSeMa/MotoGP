@@ -27,7 +27,7 @@ CREATE TABLE pilotos (
     nombre          varchar(100)    NOT NULL,
     apellido        varchar(100)    NOT NULL,
     edad            int             NOT NULL,
-    nacionalidad    varchar(10)     NOT NULL,
+    pais            varchar(50)     NOT NULL,
     dorsal          numeric(2)      NOT NULL UNIQUE,
     moto_id         bigint          NOT NULL REFERENCES motos(id)
 );
@@ -138,29 +138,29 @@ INSERT INTO motos (moto, fabricante, cilindrada, peso)
                     ('Gas Gas RC16', 'KTM', 1000, 160);
 
 
-INSERT INTO pilotos (nombre, apellido, edad, nacionalidad, dorsal, moto_id)
-            VALUES  ('Marc', 'Marquez', 30, 'ESP', 93, 1),
-                    ('Joan', 'Mir', 25, 'ESP', 36, 1),
-                    ('Takaaki', 'Nakagami', 31, 'JAP', 30, 2),
-                    ('Alex', 'Rins', 27, 'ESP', 42, 2),
-                    ('Pecco', 'Bagnaia', 26, 'ITA', 1, 3),
-                    ('Enea', 'Bastianini', 25, 'ITA', 23, 3),
-                    ('Alex', 'Marquez', 27, 'ESP', 73, 4),
-                    ('Fabio', 'Di Giannantonio', 24, 'ITA', 49, 4),
-                    ('Johann', 'Zarcot', 32, 'FRA', 5, 5),
-                    ('Jorge', 'Martín', 25, 'ESP', 89, 5),
-                    ('Luca', 'Marini', 25, 'ITA', 10, 6),
-                    ('Marco', 'Bezzecchi', 24, 'ITA', 72, 6),
-                    ('Maverick', 'Viñales', 28, 'ESP', 12, 7),
-                    ('Aleix', 'Espargaró', 33, 'ESP', 41, 7),
-                    ('Raúl', 'Fernandez', 23, 'ESP', 25, 8),
-                    ('Miguel', 'Oliveira', 28, 'POR', 88, 8),
-                    ('Brad', 'Binder', 27, 'ZAF', 33, 9),
-                    ('Jack', 'Miller', 28, 'AUS', 43, 9),
-                    ('Fabio', 'Quartararo', 24, 'ITA', 20, 10),
-                    ('Franco', 'Morbidelli', 28, 'ITA', 21, 10),
-                    ('Augusto', 'Fernandez', 25, 'ESP', 37, 11),
-                    ('Pol', 'Espargaró', 31, 'ESP', 44, 11);
+INSERT INTO pilotos (nombre, apellido, edad, pais, dorsal, moto_id)
+            VALUES  ('Marc', 'Marquez', 30, 'España', 93, 1),
+                    ('Joan', 'Mir', 25, 'España', 36, 1),
+                    ('Takaaki', 'Nakagami', 31, 'Japón', 30, 2),
+                    ('Alex', 'Rins', 27, 'España', 42, 2),
+                    ('Pecco', 'Bagnaia', 26, 'Italia', 1, 3),
+                    ('Enea', 'Bastianini', 25, 'Italia', 23, 3),
+                    ('Alex', 'Marquez', 27, 'España', 73, 4),
+                    ('Fabio', 'Di Giannantonio', 24, 'Italia', 49, 4),
+                    ('Johann', 'Zarcot', 32, 'Francia', 5, 5),
+                    ('Jorge', 'Martín', 25, 'España', 89, 5),
+                    ('Luca', 'Marini', 25, 'Italia', 10, 6),
+                    ('Marco', 'Bezzecchi', 24, 'Italia', 72, 6),
+                    ('Maverick', 'Viñales', 28, 'España', 12, 7),
+                    ('Aleix', 'Espargaró', 33, 'España', 41, 7),
+                    ('Raúl', 'Fernandez', 23, 'España', 25, 8),
+                    ('Miguel', 'Oliveira', 28, 'Portugal', 88, 8),
+                    ('Brad', 'Binder', 27, 'Sudáfrica', 33, 9),
+                    ('Jack', 'Miller', 28, 'Australia', 43, 9),
+                    ('Fabio', 'Quartararo', 24, 'Italia', 20, 10),
+                    ('Franco', 'Morbidelli', 28, 'Italia', 21, 10),
+                    ('Augusto', 'Fernandez', 25, 'España', 37, 11),
+                    ('Pol', 'Espargaró', 31, 'España', 44, 11);
 
 INSERT INTO piloto_carrera (piloto_id, carrera_id, posicion, puntos)
                     VALUES 
