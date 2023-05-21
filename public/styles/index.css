@@ -7,10 +7,12 @@ body {
 
 h1 {
     text-align: center;
-    background-color: aliceblue;
+    background-color: rgb(255, 47, 47);
+    color: white;
 }
 
 .calendario table {
+    margin-left: 10px;
     border: 2px solid;
     text-align: left;
     color: aliceblue;

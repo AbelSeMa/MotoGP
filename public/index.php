@@ -73,6 +73,9 @@
 
         <div class="clasificacion">
             <div class="clasipilotos">
+                <table>
+                    
+                </table>
 
             </div>
             <div class="clasiequipos">

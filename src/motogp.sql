@@ -65,6 +65,11 @@ CREATE TABLE circuitos (
 
 -- Carga inicial de los datos:
 
+INSERT INTO piloto_carrera (
+    
+)
+
+
 INSERT INTO circuitos (circuito, pais, longitud)
         VALUES ('Portimao', 'Portugal', 4653),
                 ('Circuito Termas de Río', 'Argentina', 4806),
