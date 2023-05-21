@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS piloto_carrera CASCADE;
 CREATE TABLE piloto_carrera (
     piloto_id       bigint      NOT NULL REFERENCES pilotos(id),
     carrera_id      bigint      NOT NULL REFERENCES carreras(id),
-    posicion        int         NOT NULL,
+    posicion        int,
     puntos          int         NOT NULL,
     PRIMARY KEY (piloto_id, carrera_id)
 
@@ -64,10 +64,6 @@ CREATE TABLE circuitos (
 );
 
 -- Carga inicial de los datos:
-
-INSERT INTO piloto_carrera (
-    
-)
 
 
 INSERT INTO circuitos (circuito, pais, longitud)
@@ -159,9 +155,126 @@ INSERT INTO pilotos (nombre, apellido, edad, nacionalidad, dorsal, moto_id)
                     ('Aleix', 'Espargaró', 33, 'ESP', 41, 7),
                     ('Raúl', 'Fernandez', 23, 'ESP', 25, 8),
                     ('Miguel', 'Oliveira', 28, 'POR', 88, 8),
-                    ('Brad', 'Blinder', 27, 'ZAF', 33, 9),
+                    ('Brad', 'Binder', 27, 'ZAF', 33, 9),
                     ('Jack', 'Miller', 28, 'AUS', 43, 9),
                     ('Fabio', 'Quartararo', 24, 'ITA', 20, 10),
                     ('Franco', 'Morbidelli', 28, 'ITA', 21, 10),
                     ('Augusto', 'Fernandez', 25, 'ESP', 37, 11),
                     ('Pol', 'Espargaró', 31, 'ESP', 44, 11);
+
+INSERT INTO piloto_carrera (piloto_id, carrera_id, posicion, puntos)
+                    VALUES 
+                        -- Primera carrera --
+                        (5, 1, 1, 25),
+                        (13, 1, 2, 20),
+                        (12, 1, 3, 16),
+                        (9, 1, 4, 13),
+                        (7, 1, 5, 11),
+                        (17, 1, 6, 10),
+                        (18, 1, 7, 9),
+                        (19, 1, 8, 8),
+                        (14, 1, 9, 7),
+                        (4, 1, 10, 6),
+                        (2, 1, 11, 5),
+                        (3, 1, 12, 4),
+                        (21, 1, 13, 3),
+                        (20, 1, 14, 2),
+                        (1, 1, NULL, 0),
+                        (6, 1, NULL, 0),
+                        (8, 1, NULL, 0),
+                        (10, 1, NULL, 0),
+                        (11, 1, NULL, 0),
+                        (15, 1, NULL, 0),
+                        (16, 1, NULL, 0),
+                        (22, 1, NULL, 0),
+
+                        -- Segunda carrera --
+                        (12, 2, 1, 25),
+                        (9,  2, 2, 20),
+                        (7,  2, 3, 16),
+                        (20, 2, 4, 13),
+                        (10, 2, 5, 11),
+                        (18, 2, 6, 10),
+                        (19, 2, 7, 9),
+                        (11, 2, 8, 8),
+                        (4,  2, 9, 7),
+                        (8,  2, 10, 6),
+                        (21, 2, 11, 5),
+                        (13, 2, 12, 4),
+                        (3,  2, 13, 3),
+                        (15, 2, 14, 2),
+                        (14, 2, 15, 1),
+                        (1,  2, NULL, 0),
+                        (2,  2, NULL, 0),
+                        (5,  2, NULL, 0),
+                        (6,  2, NULL, 0),
+                        (16, 2, NULL, 0),
+                        (17, 2, NULL, 0),
+                        (22, 2, NULL, 0),
+
+                        -- Tercena carrera --
+                        (4,  3, 1, 25),
+                        (11, 3, 2, 20),
+                        (19, 3, 3, 16),
+                        (13, 3, 4, 13),
+                        (16, 3, 5, 11),
+                        (12, 3, 6, 10),
+                        (9,  3, 7, 9),
+                        (20, 3, 8, 8),
+                        (8,  3, 9, 7),
+                        (21, 3, 10, 6),
+                        (17, 3, 13, 3),
+                        (1,  3, NULL, 0),
+                        (3,  3, NULL, 0),
+                        (2,  3, NULL, 0),
+                        (5,  3, NULL, 0),
+                        (15, 3, NULL, 0),
+                        (18, 3, NULL, 0),
+                        (7,  3, NULL, 0),
+                        (14, 3, NULL, 0),
+                        (10, 3, NULL, 0),
+
+                        -- Cuarta carrera --
+                        (5,  4, 1, 25),
+                        (17, 4, 2, 20),
+                        (18, 4, 3, 16),
+                        (10, 4, 4, 13),
+                        (14, 4, 5, 11),
+                        (11, 4, 6, 10),
+                        (7,  4, 8, 8),
+                        (3,  4, 9, 7),
+                        (19, 4, 10, 6),
+                        (20, 4, 11, 5),
+                        (8,  4, 12, 4),
+                        (21, 4, 13, 3),
+                        (15, 4, 15, 1),
+                        (13, 4, NULL, 0),
+                        (12, 4, NULL, 0),
+                        (9,  4, NULL, 0),
+                        (4,  4, NULL, 0),
+                        (1,  4, NULL, 0),
+                        (2,  4, NULL, 0),
+                        
+                        -- Quinta carrera --
+                        (12, 5, 1, 25),
+                        (10, 5, 2, 20),
+                        (9,  5, 3, 16),
+                        (21, 5, 4, 13),
+                        (14, 5, 5, 11),
+                        (17, 5, 6, 10),
+                        (19, 5, 7, 9),
+                        (8,  5, 8, 8),
+                        (3,  5, 9, 7),
+                        (20, 5, 10, 6),
+                        (1,  5, NULL, 4),
+                        (18, 5, NULL, 3),
+                        (4,  5, NULL, 2),
+                        (2,  5, NULL, 1),
+                        (7,  5, NULL, 0),
+                        (11, 5, NULL, 0),
+                        (13, 5, NULL, 0),
+                        (5,  5, NULL, 0),
+                        (22, 5, NULL, 0),
+                        (6,  5, NULL, 0),
+                        (15, 5, NULL, 0),
+                        (16, 5, NULL, 0);
